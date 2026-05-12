@@ -2,8 +2,8 @@
 
 @section('content')
 {{-- Top Government Bar --}}
-<div class="bg-navy-dark text-white text-xs py-2 px-6">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="bg-navy-dark text-white text-xs py-4 px-4 md:px-8">
+    <div class="w-full max-w-[1400px] mx-auto flex justify-between items-center">
         <div class="flex items-center gap-2">
             <span class="text-red-500 text-[10px]">▶</span>
             <span class="text-[11px]">Official Website of the Philippine Government · Republic of the Philippines</span>
@@ -17,8 +17,8 @@
 </div>
 
 {{-- Navigation --}}
-<nav class="bg-gradient-to-b from-[#002366] to-[#001a4d] text-white py-4 px-6">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
+<nav class="bg-gradient-to-b from-[#002366] to-[#001a4d] text-white py-4 px-4 md:px-8">
+    <div class="w-full max-w-[1400px] mx-auto flex justify-between items-center">
         <div class="flex items-center gap-3">
             <img src="{{ asset('img/logo.png') }}" alt="PH-EITI Logo" class="w-10 h-10">
             <div>
@@ -42,8 +42,8 @@
 </nav>
 
 {{-- Hero Section --}}
-<section class="bg-gradient-to-b from-[#001a4d] to-[#001233] text-white pt-14 pb-16 px-6 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto">
+<section class="bg-gradient-to-b from-[#001a4d] to-[#001233] text-white pt-[8rem] pb-[8rem] px-4 md:px-8 relative overflow-hidden">
+    <div class="w-full max-w-[1400px] mx-auto">
         <span class="inline-block bg-green-600 text-white text-[10px] font-semibold px-3 py-1 rounded mb-6">
             ✦ OPEN GOVERNMENT DATA PORTAL
         </span>
@@ -57,7 +57,7 @@
         </p>
 
         {{-- Search Form --}}
-        <form action="{{ route('contracts.index') }}" method="GET" class="bg-white rounded-lg p-5 max-w-2xl">
+        <form action="{{ route('contracts.index') }}" method="GET" class="bg-white rounded-lg p-5 max-w-4xl">
             @csrf
             <div class="flex items-center gap-3 mb-4">
                 <svg class="w-5 h-5 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,8 +100,8 @@
 </section>
 
 {{-- Stats Bar --}}
-<section class="bg-blue-accent text-white py-5 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<section class="bg-blue-accent text-white py-4 px-4 md:px-8">
+    <div class="w-full max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="flex items-center gap-3">
             <div class="w-8 h-8 bg-blue-300/30 rounded"></div>
             <div>
@@ -134,10 +134,10 @@
 </section>
 
 {{-- Main Content --}}
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<section class="w-full max-w-[1400px] mx-auto px-4 md:px-8 pt-[8rem] pb-[8rem]">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {{-- Contracts Table --}}
-        <div class="lg:col-span-2">
+        <div class="lg:col-span-3">
             <div class="mb-5 flex flex-wrap justify-between items-center gap-3">
                 <div>
                     <p class="text-[10px] text-gray-500 uppercase font-semibold tracking-wide mb-1">Category Registry</p>
@@ -163,21 +163,21 @@
                 <table class="w-full text-[13px]">
                     <thead class="bg-gray-50 text-gray-500 uppercase text-[11px]">
                         <tr>
-                            <th class="text-left px-4 py-3 font-medium">Company / Contract Name</th>
-                            <th class="text-left px-4 py-3 font-medium">Contract Type</th>
-                            <th class="text-left px-4 py-3 font-medium">Location/Region</th>
-                            <th class="text-left px-4 py-3 font-medium">Status</th>
-                            <th class="text-left px-4 py-3 font-medium">Action</th>
+                            <th class="text-left px-6 py-4 font-medium">Company / Contract Name</th>
+                            <th class="text-left px-6 py-4 font-medium">Contract Type</th>
+                            <th class="text-left px-6 py-4 font-medium">Location/Region</th>
+                            <th class="text-left px-6 py-4 font-medium">Status</th>
+                            <th class="text-left px-6 py-4 font-medium">Action</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
                         @foreach($contracts as $contract)
                         <tr class="hover:bg-gray-50">
-                            <td class="px-4 py-3.5">
+                            <td class="px-6 py-5">
                                 <div class="font-semibold text-gray-900 text-[13px] leading-tight">{{ $contract['name'] }}</div>
                                 <div class="text-[11px] text-gray-400 mt-1">{{ $contract['code'] }}</div>
                             </td>
-                            <td class="px-4 py-3.5">
+                            <td class="px-6 py-5">
                                 <span class="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold
                                     @if($contract['type_color'] === 'green') bg-green-100 text-green-700 border border-green-300
                                     @elseif($contract['type_color'] === 'blue') bg-blue-100 text-blue-700 border border-blue-300
@@ -186,8 +186,8 @@
                                     {{ $contract['type'] }}
                                 </span>
                             </td>
-                            <td class="px-4 py-3.5 text-gray-600 text-[13px]">{{ $contract['location'] }}</td>
-                            <td class="px-4 py-3.5">
+                            <td class="px-6 py-5 text-gray-600 text-[13px]">{{ $contract['location'] }}</td>
+                            <td class="px-6 py-5">
                                 @if($contract['status'] === 'Active')
                                     <span class="flex items-center gap-1.5 text-green-600 text-[11px] font-medium">
                                         <span class="w-2 h-2 bg-green-500 rounded-full"></span> Active
@@ -198,7 +198,7 @@
                                     <span class="inline-block bg-orange-100 text-orange-700 text-[11px] px-2 py-0.5 rounded font-medium">Under Review</span>
                                 @endif
                             </td>
-                            <td class="px-4 py-3.5">
+                            <td class="px-6 py-5">
                                 <a href="#" class="text-blue-600 font-semibold text-[12px] hover:underline">VIEW →</a>
                             </td>
                         </tr>
@@ -229,8 +229,8 @@
                 <h3 class="font-bold text-sm mb-4">Browse by Resource</h3>
                 <ul class="space-y-3.5">
                     @foreach($resources as $resource)
-                    <li class="flex justify-between items-center">
-                        <div class="flex items-center gap-2.5">
+                    <li class="flex justify-between items-center py-2">
+                        <div class="flex items-center gap-3">
                             <div class="w-6 h-6 bg-gray-200 rounded"></div>
                             <span class="text-[13px] text-gray-700">{{ $resource['name'] }}</span>
                         </div>
@@ -245,7 +245,7 @@
                 <h3 class="font-bold text-sm mb-4">Quick Links</h3>
                 <ul class="space-y-3.5">
                     @foreach(['Contracts Registry', 'Licenses — DMPF Registry', 'MMT Reports', 'EIS Documents', 'Interactive Maps', 'Related Links'] as $link)
-                    <li>
+                    <li class="py-2">
                         <a href="#" class="flex justify-between items-center text-[13px] text-gray-700 hover:text-blue-600">
                             {{ $link }}
                             <span class="text-gray-400">›</span>
@@ -259,8 +259,8 @@
 </section>
 
 {{-- Info Cards Section --}}
-<section class="bg-gray-100 py-14 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+<section class="bg-gray-100 pt-20 pb-20 px-4 md:px-8">
+    <div class="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
             <div class="w-10 h-10 bg-blue-200 rounded mb-4"></div>
             <h3 class="font-bold text-sm mb-2">About PH-EITI</h3>
@@ -286,8 +286,8 @@
 </section>
 
 {{-- Footer --}}
-<footer class="bg-gradient-to-b from-[#002366] to-[#001233] text-white pt-12 pb-8 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+<footer class="bg-gradient-to-b from-[#002366] to-[#001233] text-white pt-16 pb-16 px-4 md:px-8">
+    <div class="w-full max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         <div>
             <h4 class="font-bold text-lg mb-2">PH-EITI Contracts Portal</h4>
             <p class="text-[10px] text-gray-400 uppercase mb-3 tracking-wide">Department of Finance · Republic of the Philippines</p>
@@ -334,7 +334,7 @@
     </div>
 
     {{-- Footer Bottom --}}
-    <div class="max-w-7xl mx-auto border-t border-gray-700 pt-5 flex flex-wrap justify-between items-center text-[11px] text-gray-500">
+    <div class="w-full max-w-[1400px] mx-auto border-t border-gray-700 pt-5 flex flex-wrap justify-between items-center text-[11px] text-gray-500">
         <span>© 2025 PH-EITI / Department of Finance. All content available as open data under CC Attribution 3.0.</span>
         <div class="flex gap-5 mt-2 md:mt-0">
             <a href="#" class="hover:text-white">Privacy Policy</a>
